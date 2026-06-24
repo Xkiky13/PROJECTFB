@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import {
   getFoodById,
@@ -113,35 +111,25 @@ const FoodDetail = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <Loading message="Memuat detail makanan..." />
-        <Footer />
-      </>
+      <Loading message="Memuat detail makanan..." />
     );
   }
 
   if (!food) {
     return (
-      <>
-        <Header />
-        <div className="container" style={{ padding: '3rem 1rem', textAlign: 'center' }}>
-          <p>Makanan tidak ditemukan</p>
-          <Link to="/" className="back-link">← Kembali ke Home</Link>
-        </div>
-        <Footer />
-      </>
+      <div className="container" style={{ padding: '3rem 1rem', textAlign: 'center' }}>
+        <p>Makanan tidak ditemukan</p>
+        <Link to="/" className="back-link">← Kembali ke Home</Link>
+      </div>
     );
   }
 
   const defaultImage = 'https://via.placeholder.com/600x400?text=' + encodeURIComponent(food.name);
 
   return (
-    <>
-      <Header />
-      <main className="food-detail">
-        <div className="container">
-          <Link to="/" className="back-link">← Kembali</Link>
+    <main className="food-detail">
+      <div className="container">
+        <Link to="/" className="back-link">← Kembali</Link>
 
           <div className="detail-grid">
             <div className="detail-image">
@@ -258,8 +246,6 @@ const FoodDetail = () => {
           </section>
         </div>
       </main>
-      <Footer />
-    </>
   );
 };
 

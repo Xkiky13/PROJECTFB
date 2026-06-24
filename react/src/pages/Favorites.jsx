@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import { getFavoritesByUser, removeFavorite } from '../services/api';
 import './Favorites.css';
@@ -40,18 +38,12 @@ const Favorites = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <Loading message="Memuat favorit..." />
-        <Footer />
-      </>
+      <Loading message="Memuat favorit..." />
     );
   }
 
   return (
-    <>
-      <Header />
-      <main className="favorites">
+    <main className="favorites-page">
         <div className="container">
           <h1>📌 Makanan Favorit Saya</h1>
 
@@ -97,8 +89,6 @@ const Favorites = () => {
           )}
         </div>
       </main>
-      <Footer />
-    </>
   );
 };
 

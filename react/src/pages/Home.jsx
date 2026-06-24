@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import FoodCard from '../components/FoodCard';
 import Loading from '../components/Loading';
@@ -86,18 +84,12 @@ const Home = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <Loading message="Memuat makanan..." />
-        <Footer />
-      </>
+      <Loading message="Memuat makanan..." />
     );
   }
 
   return (
-    <>
-      <Header />
-      <main className="home">
+    <main className="home">
         <div className="container">
           <div className="hero">
             <h2>Cari Makanan Favorit Anda</h2>
@@ -143,8 +135,6 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <Footer />
-    </>
   );
 };
 

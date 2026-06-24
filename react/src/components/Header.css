@@ -43,6 +43,70 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.auth-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.user-name {
+  color: white;
+  font-weight: 500;
+}
+
+.btn-login,
+.btn-register,
+.btn-logout,
+.btn-admin {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-login {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-register {
+  background-color: white;
+  color: #667eea;
+}
+
+.btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-logout {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-admin {
+  background-color: #ffd700;
+  color: #333;
+}
+
+.btn-admin:hover {
+  background-color: #ffed4e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -57,5 +121,12 @@
     gap: 1rem;
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .auth-menu {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

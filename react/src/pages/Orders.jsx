@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import { getOrdersByUser } from '../services/api';
 import './Orders.css';
@@ -49,18 +47,12 @@ const Orders = () => {
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <Loading message="Memuat pesanan..." />
-        <Footer />
-      </>
+      <Loading message="Memuat pesanan..." />
     );
   }
 
   return (
-    <>
-      <Header />
-      <main className="orders">
+    <main className="orders-page">
         <div className="container">
           <h1>🛒 Pesanan Saya</h1>
 
@@ -114,8 +106,6 @@ const Orders = () => {
           )}
         </div>
       </main>
-      <Footer />
-    </>
   );
 };
 

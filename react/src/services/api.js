@@ -9,6 +9,34 @@ const api = axios.create({
   }
 });
 
+// Interceptor untuk menambahkan JWT token ke setiap request
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Interceptor untuk handle 401 (unauthorized)
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Clear token dan redirect ke login
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
 // Foods
 export const getFoods = () => api.get('/foods');
 export const getFoodById = (id) => api.get(`/foods/${id}`);
